@@ -1,0 +1,323 @@
+{
+  "game_mechanics": {
+    "description": "Game mechanics and implementation patterns for blueprint creation",
+    "last_updated": "2026-02-05",
+    "usage": "AI uses this to understand what mechanics to implement for different blueprint types",
+    "jumppad": {
+      "description": "Launchpad that propels players upward",
+      "mechanics": [
+        "OnBeginOverlap: Detect player collision",
+        "ApplyForce: Launch with 1000-3000 units/sec upward",
+        "Sound effect: Play impact sound",
+        "Particle effect: Spawn particles on use"
+      ],
+      "components": [
+        "StaticMesh: Platform shape",
+        "BoxCollision: Trigger detection",
+        "Billboard: Editor visualization"
+      ],
+      "exposed_variables": [
+        "LaunchForce (float): 1500.0",
+        "LaunchDirection (vector): Z-axis",
+        "CooldownTime (float): 0.5",
+        "bPlaySound (bool): true",
+        "bSpawnParticles (bool): true"
+      ],
+      "implementation_steps": [
+        "1. Set collision: ObjectType=WorldDynamic, BodyInstance.bNotifyRigidBodyCollision=true",
+        "2. On hit component: ApplyImpulse or AddForce on character",
+        "3. Add cooldown timer to prevent double-launch",
+        "4. Play sound at location",
+        "5. Spawn particle effect"
+      ]
+    },
+    "checkpoint": {
+      "description": "Save point that tracks player progress",
+      "mechanics": [
+        "OnBeginOverlap: Detect player",
+        "Save position and rotation",
+        "Respawn player at checkpoint if dead",
+        "Visual indicator: Spinning animation, glowing material"
+      ],
+      "components": [
+        "SphereCollision: Trigger volume",
+        "StaticMesh: Visual representation",
+        "ParticleSystem: Glow effect"
+      ],
+      "exposed_variables": [
+        "bActivated (bool): false",
+        "CheckpointColor (color): Green",
+        "RotationSpeed (float): 45.0",
+        "GlowIntensity (float): 1.5"
+      ],
+      "implementation_steps": [
+        "1. Store checkpoint position/rotation",
+        "2. On overlap, mark as player's active checkpoint",
+        "3. Animate mesh rotation around Z axis",
+        "4. Increase material emissive on activation",
+        "5. Store in game state or player controller"
+      ]
+    },
+    "collectible": {
+      "description": "Item pickup that increases score or gives reward",
+      "mechanics": [
+        "OnBeginOverlap: Detect player",
+        "Add to inventory/score",
+        "Destroy actor",
+        "Play pickup sound and particle effect"
+      ],
+      "components": [
+        "SphereCollision: Pickup trigger",
+        "StaticMesh: Visual item",
+        "ParticleSystem: Pickup effect"
+      ],
+      "exposed_variables": [
+        "PointValue (int): 10",
+        "bBonus (bool): false",
+        "BonusMultiplier (float): 2.0",
+        "RotationSpeed (float): 90.0",
+        "FloatHeight (float): 50.0"
+      ],
+      "implementation_steps": [
+        "1. Set collision to trigger on pawn",
+        "2. On overlap: broadcast event, destroy self",
+        "3. Rotate mesh continuously",
+        "4. Bob up and down with sine wave",
+        "5. Play pickup sound and particles"
+      ]
+    },
+    "trap": {
+      "description": "Hazard that damages player on contact",
+      "mechanics": [
+        "OnBeginOverlap: Damage player",
+        "Visual warning: Red color, spiky appearance",
+        "OnOverlap: Deal damage each frame",
+        "Optional: Push player away"
+      ],
+      "components": [
+        "BoxCollision: Damage trigger",
+        "StaticMesh: Spike/hazard shape",
+        "ParticleSystem: Danger effect"
+      ],
+      "exposed_variables": [
+        "DamageAmount (float): 10.0",
+        "DamageInterval (float): 0.5",
+        "bPushPlayer (bool): true",
+        "PushForce (float): 500.0",
+        "bFlashing (bool): true",
+        "FlashSpeed (float): 5.0"
+      ],
+      "implementation_steps": [
+        "1. Set collision to overlap all pawns",
+        "2. Apply damage with timer to avoid spam",
+        "3. Apply impulse to push player away",
+        "4. Flash material between red and dark red",
+        "5. Spawn fire/danger particles"
+      ]
+    },
+    "health_pack": {
+      "description": "Healing item that restores player health",
+      "mechanics": [
+        "OnBeginOverlap: Apply healing",
+        "Respawn after delay",
+        "Glowing green appearance",
+        "Healing particle effect"
+      ],
+      "components": [
+        "SphereCollision: Pickup trigger",
+        "StaticMesh: Medical cross or similar",
+        "ParticleSystem: Healing aura"
+      ],
+      "exposed_variables": [
+        "HealAmount (float): 25.0",
+        "RespawnTime (float): 30.0",
+        "bAutoDestroy (bool): true",
+        "GlowColor (color): Green",
+        "RotationSpeed (float): 60.0"
+      ],
+      "implementation_steps": [
+        "1. On overlap: heal character, hide actor",
+        "2. Start respawn timer",
+        "3. After timer: show actor again",
+        "4. Rotate mesh around Z axis",
+        "5. Emit green glowing particles"
+      ]
+    },
+    "platform": {
+      "description": "Static or moving platform for traversal",
+      "mechanics": [
+        "Support player standing/walking",
+        "Optional: Moving path (waypoint system)",
+        "Optional: Falling/breaking mechanic"
+      ],
+      "components": [
+        "StaticMesh: Platform shape",
+        "BoxCollision: Player collision",
+        "Timeline: For moving platforms"
+      ],
+      "exposed_variables": [
+        "bMoving (bool): false",
+        "MovementSpeed (float): 100.0",
+        "MovementDistance (float): 500.0",
+        "bBreakable (bool): false",
+        "BreakDamageThreshold (float): 1000.0"
+      ],
+      "implementation_steps": [
+        "1. Set collision: WorldStatic, complex collision enabled",
+        "2. If moving: use Timeline to move between waypoints",
+        "3. If breakable: apply damage on collision, destroy if threshold met",
+        "4. Optional: particle trail or dust effect while moving"
+      ]
+    },
+    "trigger_zone": {
+      "description": "Invisible trigger that executes logic on overlap",
+      "mechanics": [
+        "OnBeginOverlap: Execute custom event",
+        "OnEndOverlap: Execute exit event",
+        "Optional: Repeatable or one-time"
+      ],
+      "components": [
+        "BoxCollision: Trigger volume",
+        "Billboard: Editor visualization"
+      ],
+      "exposed_variables": [
+        "bRepeatable (bool): true",
+        "bVisualizeInGame (bool): false",
+        "TriggerEffect (enum): None, Damage, Healing, Event",
+        "bDestroyOnTrigger (bool): false"
+      ],
+      "implementation_steps": [
+        "1. Set collision: query only, ignore physics",
+        "2. Bind to OnBeginOverlap event",
+        "3. Execute custom logic or broadcast event",
+        "4. If one-time: disable or destroy",
+        "5. Optional: play sound/particles on trigger"
+      ]
+    },
+    "door": {
+      "description": "Openable door with animated movement",
+      "mechanics": [
+        "Opens on trigger/interaction",
+        "Closes after delay",
+        "Blocks passage when closed",
+        "Play door sounds"
+      ],
+      "components": [
+        "SkeletalMesh: Animated door",
+        "BoxCollision: Door blocking",
+        "BoxCollision: Interaction trigger"
+      ],
+      "exposed_variables": [
+        "bLocked (bool): false",
+        "bOpen (bool): false",
+        "OpenSpeed (float): 2.0",
+        "AutoCloseDelay (float): 5.0",
+        "RequiresKey (bool): false"
+      ],
+      "implementation_steps": [
+        "1. Create skeletal mesh with door bone",
+        "2. On interact: play open animation",
+        "3. Disable blocking collision when open",
+        "4. Set timer for auto-close",
+        "5. Play door creak sounds"
+      ]
+    },
+    "projectile": {
+      "description": "Fired projectile with physics and damage",
+      "mechanics": [
+        "Physics-based movement",
+        "OnHit: Apply damage and effects",
+        "Lifetime destruction",
+        "Particle trail during flight"
+      ],
+      "components": [
+        "SphereCollision: Physics collision",
+        "StaticMesh: Visual projectile",
+        "ProjectileMovement: Physics handling",
+        "ParticleSystem: Trailing effect"
+      ],
+      "exposed_variables": [
+        "InitialSpeed (float): 1500.0",
+        "MaxSpeed (float): 3000.0",
+        "DamageAmount (float): 10.0",
+        "ExplodeOnImpact (bool): true",
+        "Lifetime (float): 10.0"
+      ],
+      "implementation_steps": [
+        "1. Set collision: sphere collision with physics enabled",
+        "2. Bind to OnHit event for collision response",
+        "3. Use projectile movement component for trajectory",
+        "4. On hit: apply damage, spawn particles, destroy",
+        "5. On timeout: self-destruct"
+      ]
+    },
+    "character_enemy": {
+      "description": "AI-controlled enemy character with basic AI",
+      "mechanics": [
+        "Patrol or follow player",
+        "Attack on range",
+        "Health and damage system",
+        "Death animation/respawn"
+      ],
+      "components": [
+        "CharacterMovement: Character physics",
+        "Mesh: Skeletal mesh with animations",
+        "Collision: Character collision",
+        "AIController: AI behavior"
+      ],
+      "exposed_variables": [
+        "MaxHealth (float): 100.0",
+        "CurrentHealth (float): 100.0",
+        "AttackDamage (float): 10.0",
+        "AttackRange (float): 200.0",
+        "DetectionRange (float): 1000.0",
+        "WalkSpeed (float): 600.0"
+      ],
+      "implementation_steps": [
+        "1. Extend character class with AI controller",
+        "2. Implement perception system (sight/hearing)",
+        "3. Set up animation blueprint with states (idle, walk, attack, death)",
+        "4. Implement simple state machine (patrol, chase, attack)",
+        "5. On death: play death animation, destroy after delay"
+      ]
+    }
+  },
+  "component_patterns": {
+    "description": "Common component setup patterns",
+    "physics": {
+      "static_object": {
+        "collision": "WorldStatic, BlockAll",
+        "gravity": "false",
+        "physics": "false",
+        "use_case": "Platforms, walls, decorations"
+      },
+      "dynamic_object": {
+        "collision": "WorldDynamic, BlockAll",
+        "gravity": "true",
+        "physics": "true",
+        "use_case": "Boxes, barrels, destructibles"
+      },
+      "trigger": {
+        "collision": "WorldDynamic, QueryOnly",
+        "gravity": "false",
+        "physics": "false",
+        "use_case": "Checkpoints, collectibles, damage zones"
+      }
+    },
+    "materials": {
+      "emissive": "Use for glowing objects (health packs, checkpoints)",
+      "translucent": "Use for effects and visual elements",
+      "masked": "Use for detailed meshes with cutouts",
+      "metallic": "Use for industrial/tech elements"
+    }
+  },
+  "quick_reference": {
+    "jumppad_creation": "SM_Cube + bright_blue material + BoxCollision trigger + ApplyImpulse + P_Sparks particles",
+    "checkpoint_creation": "SM_Sphere + bright_green material + SphereCollision trigger + rotating animation + green glow",
+    "collectible_creation": "SM_Sphere + gold material + SphereCollision trigger + bobbing animation + rotate",
+    "trap_creation": "SM_Cube + bright_red material + BoxCollision damage + flashing + fire particles",
+    "health_pack_creation": "SM_Sphere + green material + SphereCollision trigger + respawn timer + green glow",
+    "platform_creation": "SM_Cube + stone material + WorldStatic collision + no physics",
+    "enemy_creation": "SK_Mannequin + red material + CharacterMovement + AIController + attack logic"
+  }
+}
