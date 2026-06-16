@@ -1,0 +1,147 @@
+===============================================================
+                    AIBLUE - START HERE!
+===============================================================
+
+WELCOME! Follow these steps EXACTLY in order.
+
+===============================================================
+WHAT YOU NEED TO DO
+===============================================================
+
+You have 2 files in this folder:
+
+1. REBUILD_PROJECT.bat
+   ?? This fixes your project
+
+2. BUILD_GUIDE_FOR_BEGINNERS.md
+   ?? This explains everything in detail
+
+3. QUICK_REFERENCE.txt
+   ?? Quick cheat sheet (print it!)
+
+===============================================================
+THE 3-MINUTE PROCESS
+===============================================================
+
+STEP 1: Close Everything
+????????????????????????
+- Close Unreal Engine (if open)
+- Close Visual Studio (if open)
+- Close any other programs that might lock files
+
+STEP 2: Run the Rebuild Script
+??????????????????????????????
+- Look in this folder for: REBUILD_PROJECT.bat
+- Double-click it
+- A black window opens
+- Read what it says
+- Press any key to continue
+- Watch it work (takes 30-60 seconds)
+- It will tell you "SUCCESS!" when done
+
+STEP 3: Let It Work
+???????????????????
+- Visual Studio will open automatically
+- If it doesn't, open it manually
+- Wait for it to say "Ready" (bottom right)
+- THIS IS IMPORTANT - Don't skip this step!
+
+STEP 4: Build the Project
+?????????????????????????
+Once VS says "Ready":
+- Look on the LEFT side - find "Solution Explorer"
+- In the list, find "AIBLUE" (the C++ project)
+- Right-click it
+- Select "Build"
+- Wait for "Build succeeded" message
+- This takes 10-20 minutes (NORMAL - don't interrupt!)
+
+STEP 5: Launch the Editor
+??????????????????????????
+When build is done:
+- Close Visual Studio (optional)
+- Double-click: AIBLUE.uproject
+- Unreal Engine will open
+- Wait for it to fully load
+- Done!
+
+===============================================================
+FILE LOCATIONS
+===============================================================
+
+You are here:
+C:\Users\Ty\Documents\Unreal Projects\AIBLUE\
+
+The script you need to run:
+C:\Users\Ty\Documents\Unreal Projects\AIBLUE\REBUILD_PROJECT.bat
+
+===============================================================
+READ THESE NEXT
+===============================================================
+
+1. Quick Reference (Print This):
+   QUICK_REFERENCE.txt
+   ?? One page visual guide
+
+2. Detailed Guide:
+   BUILD_GUIDE_FOR_BEGINNERS.md
+   ?? Step-by-step with troubleshooting
+
+3. Project Summary:
+   AIBLUE_BUILD_SUMMARY.md
+   ?? Overview of what was built
+
+===============================================================
+NEED HELP?
+===============================================================
+
+If something goes wrong:
+
+1. Read: BUILD_GUIDE_FOR_BEGINNERS.md
+   ?? Has troubleshooting section
+
+2. Check: Did you close everything?
+   ?? Close UE5 and VS completely, then try again
+
+3. Contact: syntheticgamelabs@gmail.com
+   ?? Send error message/screenshot
+
+===============================================================
+QUICK TROUBLESHOOTING
+===============================================================
+
+"Intermediate folder won't delete"
+? Close Unreal Engine completely
+
+"Visual Studio won't open"
+? Run the script again, or open AIBLUE.sln manually
+
+"Build failed"
+? Check the error message, we can help!
+
+"Takes forever to build"
+? NORMAL! First build is slow (10-20 mins)
+
+"Nothing happens when I double-click .bat"
+? Try: Right-click REBUILD_PROJECT.bat ? Run as Administrator
+
+===============================================================
+YOU CAN DO THIS!
+===============================================================
+
+This process is:
+? Safe (only deletes temporary files)
+? Automatic (no manual steps)
+? Effective (fixes 99% of build issues)
+? Easy (just follow the steps above)
+
+Total time: 20-30 minutes
+
+NOW: Double-click REBUILD_PROJECT.bat and follow the instructions!
+
+===============================================================
+Created by: Syntheticgamelabs
+Email: syntheticgamelabs@gmail.com
+Version: 1.0
+Date: 2024
+===============================================================

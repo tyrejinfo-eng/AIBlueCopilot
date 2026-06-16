@@ -1,0 +1,299 @@
+# Git Quick Reference - AIBLUE Team
+
+**Print this out or bookmark it!**
+
+---
+
+## ?? First Time Setup (Do Once)
+
+```powershell
+# 1. Configure Git
+git config --global user.name "Your Name"
+git config --global user.email "your.email@example.com"
+
+# 2. Clone repository
+cd Documents
+git clone https://github.com/YOUR_TEAM/AIBlueCopilot.git
+cd AIBlueCopilot
+
+# 3. Done! You're ready to work
+```
+
+---
+
+## ?? Daily Workflow
+
+```powershell
+# Morning: Get latest code
+git checkout develop
+git pull origin develop
+
+# During day: Create feature branch
+git checkout -b feature/what-you-are-building
+
+# Make changes in Visual Studio...
+
+# End of day: Save your work
+git add .
+git commit -m "feat: Description of what you did"
+git push origin feature/what-you-are-building
+```
+
+---
+
+## ?? Merge Your Changes (Push to Team)
+
+1. Go to GitHub in browser
+2. You'll see "Compare & pull request" button
+3. Click it
+4. Add description of changes
+5. Click "Create Pull Request"
+6. Wait for teammate to review ?
+7. Teammate clicks "Approve"
+8. You click "Merge Pull Request"
+9. Delete the branch (button appears)
+
+---
+
+## ? Reviewing Teammate's Code
+
+1. Go to GitHub "Pull Requests" tab
+2. Click PR to view
+3. Click "Files changed" to see code
+4. Hover lines to add comments
+5. Click "Approve" when good
+6. Don't click merge - they will
+
+---
+
+## ?? Quick Fixes for Mistakes
+
+| Problem | Fix |
+|---------|-----|
+| Want latest code | `git pull origin develop` |
+| Made local change you want to undo | `git checkout .` |
+| Forgot to create branch | `git checkout -b feature/name` |
+| Committed but not pushed yet | `git reset --soft HEAD~1` |
+| Want to see what you changed | `git diff` |
+| Want to see commit history | `git log --oneline` |
+| Need to switch branches | `git checkout branch-name` |
+| Want to list all branches | `git branch -a` |
+
+---
+
+## ?? Commit Message Format
+
+```
+TYPE: What you did (50 chars max)
+
+feat: Add JSON converter
+fix: Fix timeout error
+docs: Update API reference
+refactor: Clean up code
+```
+
+---
+
+## ?? Basic Commands
+
+```powershell
+# See what changed
+git status
+
+# See detailed changes
+git diff
+
+# Stage changes for commit
+git add .
+
+# Commit changes
+git commit -m "message"
+
+# Push to GitHub
+git push origin branch-name
+
+# Get latest from team
+git pull origin develop
+
+# Create new branch
+git checkout -b feature/name
+
+# Switch to existing branch
+git checkout develop
+
+# Delete local branch
+git branch -d branch-name
+
+# List all branches
+git branch -a
+```
+
+---
+
+## ?? Typical Day in 3 Steps
+
+```
+1?? Morning:
+   git checkout develop
+   git pull origin develop
+
+2?? Work:
+   [Edit files in VS]
+   git add .
+   git commit -m "your message"
+   git push origin feature/name
+
+3?? Merge:
+   Create PR on GitHub
+   Get approval
+   Merge
+   Start new feature
+```
+
+---
+
+## ?? Never Push These
+
+```
+? .vs/ folder
+? Binaries/ folder
+? Intermediate/ folder
+? Saved/ folder
+? API keys or passwords
+? *.dll, *.exe files
+? Large files (> 50MB)
+```
+
+**These are already in .gitignore - you're safe!**
+
+---
+
+## ?? Need Help?
+
+```powershell
+# Get help for any git command
+git help <command>
+git help push
+git help commit
+
+# Example: git help branch
+```
+
+---
+
+## ?? One Minute Lessons
+
+### What is a Branch?
+Independent copy of code where you work without affecting others.
+
+### What is a Commit?
+Saving your changes with a description of what you did.
+
+### What is a Push?
+Uploading your commits to GitHub so team can see them.
+
+### What is a Pull Request?
+Asking team to review your code before merging to main branch.
+
+### What is a Merge?
+Combining your branch changes back into develop/main.
+
+---
+
+## ?? Best Practices
+
+? **Do:**
+- Pull before you start work
+- Create new branch for each feature
+- Push frequently (daily)
+- Write clear commit messages
+- Ask for code review
+- Keep commits small and focused
+
+? **Don't:**
+- Commit and push without testing
+- Use vague commit messages
+- Leave PRs unreviewed
+- Work directly on develop/main
+- Commit large binary files
+- Commit secrets or passwords
+
+---
+
+## ?? Useful Links
+
+- [Interactive Git Tutorial](https://learngitbranching.js.org/)
+- [GitHub Guides](https://guides.github.com/)
+- [Git Documentation](https://git-scm.com/doc)
+
+---
+
+## ?? Troubleshooting Decision Tree
+
+```
+Did you mess up?
+?
+?? Only locally (not pushed yet)? ? git checkout .
+?
+?? Pushed to wrong branch? ? Create new PR to correct branch
+?
+?? Committed something bad? ? Tell project lead immediately
+?
+?? Need to undo latest commit? ? git reset --soft HEAD~1
+?
+?? Still confused? ? Ask team on Discord/Slack
+```
+
+---
+
+## ?? Your First Week
+
+- [ ] Day 1: Set up Git locally
+- [ ] Day 2: Clone project
+- [ ] Day 3: Create first feature branch
+- [ ] Day 4: Make first commit and push
+- [ ] Day 5: Create first PR and merge
+
+---
+
+## ?? Example PR Description
+
+```
+## What does this PR do?
+Implements JSON to Blueprint converter for scene specifications.
+
+## Changes
+- Added FJSONToBlueprintConverter class
+- Supports basic component types (Static Mesh, Light, etc)
+- Includes error handling for invalid JSON
+
+## Testing
+- Tested with provided JSON samples
+- Verified blueprint creation and property assignment
+- Tested error cases
+
+## Related Issue
+Closes #45
+```
+
+---
+
+## ?? You've Got This!
+
+Keep this cheat sheet nearby. Most of the time you only need:
+
+```powershell
+git pull origin develop          # Get latest code
+git checkout -b feature/name     # Start work
+git add . && git commit -m "msg" # Save work
+git push origin feature/name     # Share work
+# Then create PR on GitHub
+```
+
+**Questions? Ask the team! ??**
+
+---
+
+**Updated:** 2024
+**Project:** AIBLUE AI Copilot
+**Team Size:** 4 Developers
