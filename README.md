@@ -3,14 +3,14 @@
 
 Simply copy into your Unreal Plugin folder and Restart you Unreaeal Editor 5.3.2 Only
 
-[![Unreal Engine](https://shields.io)](https://unrealengine.com)
-[![License: MIT](https://shields.io)](https://opensource.org)
-[![Status: Open Source Alpha](https://shields.io)](https://github.com)
+[![Unreal Engine](https://unrealengine.com)
+[![License: MIT](https://opensource.org)
+[![Status: Open Source Alpha](https://github.com)
 
 An innovative, pioneering, and **100% offline, local-first AI coding assistant** built directly for the Unreal Engine 5.3 editor. Connect your local environment to open-source Large Language Models (LLMs) via LM Studio to get unlimited, secure, and private AI assistance for C++ and Blueprints—with **zero subscription fees** and **zero data leaks**.
 
 ---
-
+https://youtu.be/QnW2T3M1v74
 ## ⚡ Quick Start: Zero Compilation Needed!
 
 You do not need to be a C++ developer to use this plugin. We provide a pre-compiled, drop-in version ready for production.
