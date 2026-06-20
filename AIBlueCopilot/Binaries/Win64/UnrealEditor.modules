@@ -1,8 +1,0 @@
-{
-	"BuildId": "27405482",
-	"Modules": 
-	{
-		"AIBlueCopilot": "UnrealEditor-AIBlueCopilot.dll",
-		"AIBlueCopilotEditor": "UnrealEditor-AIBlueCopilotEditor.dll"
-	}
-}
