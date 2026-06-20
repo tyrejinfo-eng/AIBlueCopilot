@@ -15,7 +15,7 @@ https://youtu.be/QnW2T3M1v74
 
 You do not need to be a C++ developer to use this plugin. We provide a pre-compiled, drop-in version ready for production.
 
-1. **Download the Pre-Compiled Release**: [Download the AIBlueCopilot.zip here](https://github.com/tyrejinfo-eng/AIBlueCopilot/blob/main/AIBlueCopilotVN02A.zip) *(Replace with your actual link once uploaded)*.
+1. **Download the Pre-Compiled Release**: [Download the AIBlueCopilot.zip here](https://github.com/tyrejinfo-eng/AIBlueCopilot/blob/main/AIBlueCopilotVN02A.zip) .
 2. **Install**: Extract the folder directly into your project's `Plugins/` directory (e.g., `YourProject/Plugins/AIBlueCopilot/`).
 3. **Launch**: Open your Unreal Engine 5.3.2 project. The plugin is active and ready to go!
 
