@@ -1,5 +1,7 @@
 # AIBlueCopilot
 
+Simply copy into your Unreal Plugin folder and Restart you Unreaeal Editor 5.3.2 Only
+
 [![Unreal Engine](https://shields.io)](https://unrealengine.com)
 [![License: MIT](https://shields.io)](https://opensource.org)
 [![Status: Open Source Alpha](https://shields.io)](https://github.com)
