@@ -1,8 +1,0 @@
-{
-	"RemapUnityFiles": 
-	{
-		"Module.AIBlueprintCopilot.cpp.obj": [
-			"AIBlueprintCopilot.cpp.obj"
-		]
-	}
-}
