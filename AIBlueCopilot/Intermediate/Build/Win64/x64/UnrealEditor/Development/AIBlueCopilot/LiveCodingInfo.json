@@ -1,0 +1,21 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.AIBlueCopilot.cpp.obj": [
+			"AIBlueCopilot.gen.cpp.obj",
+			"AIBlueCopilot.init.gen.cpp.obj",
+			"AIBlueCopilotLibrary.gen.cpp.obj",
+			"CopilotAuditLog.gen.cpp.obj",
+			"JSONToBlueprintConverter.gen.cpp.obj",
+			"ProjectAnalyzer.gen.cpp.obj",
+			"AIBlueCopilot.cpp.obj",
+			"ProjectAnalyzer.cpp.obj",
+			"CopilotAuditLog.cpp.obj",
+			"TokenStorage.cpp.obj",
+			"JSONToBlueprintConverter.cpp.obj",
+			"AIBlueCopilot.cpp.obj",
+			"AIBlueCopilotLibrary.cpp.obj",
+			"LLMServiceClient.cpp.obj"
+		]
+	}
+}

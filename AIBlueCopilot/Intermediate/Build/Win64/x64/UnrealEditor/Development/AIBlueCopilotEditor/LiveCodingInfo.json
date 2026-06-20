@@ -1,0 +1,8 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.AIBlueCopilotEditor.cpp.obj": [
+			"AIBlueCopilotEditor.cpp.obj"
+		]
+	}
+}
